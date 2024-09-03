@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedido Especial</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5f5f5;
+            margin: 0;
+            flex-direction: column;
+            overflow: hidden;
+            padding: 20px; /* Adiciona um pouco de espaço nas bordas */
+        }
+
+        .heart {
+            color: red;
+            font-size: 80px;
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .question {
+            font-size: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            min-width: 120px; /* Define um tamanho mínimo para os botões */
+        }
+
+        button.yes {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        button.no {
+            background-color: #f44336;
+            color: white;
+            position: absolute; /* Permite que o botão se mova */
+            left: 0;
+            top: 0;
+        }
+
+        button:hover {
+            background-color: #555;
+            color: white;
+        }
+
+        #message {
+            font-size: 20px;
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="heart">❤️</div>
+    <div class="question">Me da o cuzinho?</div>
+    <button class="yes" onclick="sayYes()">Sim</button>
+    <button class="no" id="noButton" onclick="sayNo()">Não</button>s
+
+    <div id="message"></div>
+
+    <script>
+        const noButton = document.getElementById("noButton");
+
+        noButton.addEventListener("touchstart", function() {
+            moveButton();
+        });
+
+        noButton.addEventListener("mouseover", function() {
+            moveButton();
+        });
+
+        function moveButton() {
+            const x = Math.floor(Math.random() * (window.innerWidth - noButton.offsetWidth));
+            const y = Math.floor(Math.random() * (window.innerHeight - noButton.offsetHeight));
+            noButton.style.left = x + "px";
+            noButton.style.top = y + "px";
+        }
+
+        function sayYes() {
+            document.getElementById("message").innerHTML = "🎉Eu sabia que você nao ia negar KKKKKKKKKKKKKKKKKK 🎉";
+            document.querySelector('.heart').style.fontSize = "120px";
+            document.querySelector('.heart').style.animation = "none";
+        }
+
+    </script>
+</body>
+</html>
